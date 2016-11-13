@@ -5,7 +5,6 @@
         Navigator
     } from 'react-native';
     import FirstPageComponent from './FirstPageComponent';
-    
     export default class SampleComponent extends React.Component {
         getSceneType(route){
             //根据传参判断 跳转场景

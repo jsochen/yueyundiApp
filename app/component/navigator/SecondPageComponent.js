@@ -17,8 +17,12 @@ export default class SecondPageComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+       
     }
-
+   
+   componentWillMount() {
+   }
+   
     _pressButton() {
         const { navigator } = this.props;
         if(navigator) {
@@ -39,7 +43,7 @@ export default class SecondPageComponent extends React.Component {
     }
     render() {
     return (
-            <View>
+            <View style={{height:500,borderColor:'#000',borderWidth:3,width:300,backgroundColor:"red"}}>
                 <TouchableOpacity onPress={this._pressButton.bind(this)}>
                     <Text>点我跳回去</Text>
                 </TouchableOpacity>
