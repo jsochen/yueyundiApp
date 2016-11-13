@@ -11,7 +11,7 @@ class TabBar extends Component {
     render() {
          let  tabarjson = this.props.Tabbardata.list;
          let  tabarHTML = tabarjson.map((item,index)=>{
-             return <TabBarItem 
+             return <TabBarItem
              itemindex={this.props.itemindex}
              key={index} 
              index={index}
@@ -19,6 +19,7 @@ class TabBar extends Component {
              ItemClick={this.props.ItemClick} 
              fontColor={this.props.Tabbardata.fontColor}
              fontChangeColor={this.props.Tabbardata.fontChangeColor}
+             underlayColor={this.props.Tabbardata.underlayColor}
              />
          }) 
         return (
@@ -38,6 +39,6 @@ const styles = StyleSheet.create({
    TabBar:{
        width:Dimensions.get('window').width,
        height:50,
-       flexDirection:'row'
+       flexDirection:'row',
    }
 });

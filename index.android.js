@@ -30,6 +30,7 @@ class TextProject extends Component {
       TabbarJson: {
         fontColor: "#757575",
         fontChangeColor: "#D81E06",
+        backColor:"#fafafa",
         list: [
           {
             name: '音乐',
