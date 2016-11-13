@@ -11,6 +11,15 @@ import KNavigator from './app/component/navigatorNow/KNavigator';
 
 import TabBar  from './app/component/navigatorNow/TabBar';
 
+//引入pages
+
+
+import Page1 from './app/component/pages/Page1';
+import Page2 from './app/component/pages/Page2';
+import Page3 from './app/component/pages/Page3';
+import Page4 from './app/component/pages/Page4';
+
+
 class TextProject extends Component {
   constructor(props) {
     super(props);
@@ -45,12 +54,13 @@ class TextProject extends Component {
             imgChangeUrl: require("./app/images/my_r.jpg")
           }
         ]
-      }
+      },
+      page:[Page1,Page2,Page3,Page4]
     })
   }
   render() {
     return (
-     <KNavigator  Tabbardata={this.state.TabbarJson}/>
+     <KNavigator Pages={this.state.page}  Tabbardata={this.state.TabbarJson}/>
     );
   }
 }

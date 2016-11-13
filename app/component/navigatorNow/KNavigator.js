@@ -4,11 +4,6 @@ import {StyleSheet, Text, View, Image,Navigator,Dimensions} from 'react-native';
 
 import TabBar from './TabBar';
 
-import Page1 from '../pages/Page1';
-import Page2 from '../pages/Page2';
-import Page3 from '../pages/Page3';
-import Page4 from '../pages/Page4';
-
 var ROUTE_STACK =[];
 
 class KNavigator extends Component {
@@ -60,39 +55,20 @@ class KNavigator extends Component {
         }
     }
     renderScene(route, navigator) {
-        var page1, page2, page3, page4;
-        if (ROUTE_STACK.indexOf(route) === 0) {
-            page1 = (
-                <View style={{height:Dimensions.get('window').height-60}}>  
-                 <Page1 navigator={navigator}></Page1>
+        var Pages = this.props.Pages.map((item,index)=>{
+            if(ROUTE_STACK.indexOf(route)===index){
+                let Component = this.props.Pages[index];
+                return(
+                 <View key={index} style={{height:Dimensions.get('window').height-50}}>  
+                  <Component key={index} navigator={navigator}></Component>
                 </View>
-            );
-        } else if (ROUTE_STACK.indexOf(route) === 1) {
-            page2 = (
-                <View style={{height:Dimensions.get('window').height-60}}> 
-                    <Page2 navigator={navigator}></Page2>
-                </View>
-            )
-        } else if (ROUTE_STACK.indexOf(route) === 2) {
-            page3 = (
-                <View style={{height:Dimensions.get('window').height-60}}>        
-                    <Page3 navigator={navigator}></Page3>
-                </View>
-            );
-        } else if (ROUTE_STACK.indexOf(route) === 3) {
-            page4 = (
-                <View style={{height:Dimensions.get('window').height-60}}>
-                  <Page4 navigator={navigator}></Page4>
-                </View>
-            )
-        }
+                )
+            }
+        })
         return (
            <View style={styles.scene}>
                 <View style={{flex:1}}>
-                    {page1}
-                    {page2}
-                    {page3}
-                    {page4}
+                    {Pages}
                 </View>
             </View>
         );
