@@ -52,11 +52,11 @@ class KNavigator extends Component {
             case 'type6':
                 return Navigator.SceneConfigs.FadeAndroid;
             case 'type7':
-                return Navigator.SceneConfigs.HorizontalSwipeJump;
+                return Navigator.SceneConfigs.HorizontalSwipeJumpFromRight;
             case 'type8':
                 return Navigator.SceneConfigs.VerticalDownSwipeJump;
             default:
-                return Navigator.SceneConfigs.HorizontalSwipeJumpFromRight;
+                return Navigator.SceneConfigs.HorizontalSwipeJump;
         }
     }
     renderScene(route, navigator) {
@@ -111,6 +111,13 @@ class KNavigator extends Component {
                ref={(navigator) => {
                   this._navigator = navigator;
                 }}
+              onWillFocus={(nextroute)=>{
+                   if(nextroute!=ROUTE_STACK[this.state.itemindex]){
+                      this.setState({
+                          itemindex:ROUTE_STACK.indexOf(nextroute)
+                      })
+                   }
+              }} 
                navigationBar={
                    <TabBar
                        Tabbardata={this.props.Tabbardata}
