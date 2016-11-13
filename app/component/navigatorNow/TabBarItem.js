@@ -25,10 +25,6 @@ class TabBarItem extends Component {
     //@ButtonClick 传入代表tabar的key值触发父组件的ItemClick方法同时更改imgurl
     ButtonClick(index){
         this.props.ItemClick(index);
-        // this.setState({
-        //     imgurl:this.props.datatabar.imgChangeUrl,
-        //     fontColor:this.props.datatabar.fontChangeColor,
-        // })
     }
     componentWillReceiveProps (nextProps) {
         console.log(nextProps.itemindex);
@@ -39,7 +35,7 @@ class TabBarItem extends Component {
     }
     render() {
         return (
-            <TouchableHighlight activeOpacity={1} underlayColor={"#FAFAFA"} onPress={this.ButtonClick.bind(this,this.props.index)} style={styles.back}>
+            <TouchableHighlight activeOpacity={1} underlayColor={this.props.underlayColor||"#fafafa"} onPress={this.ButtonClick.bind(this,this.props.index)} style={styles.back}>
                 <View style={{ flexDirection: 'column' }}>
                     <View style={styles.Imageview}>
                         <View style={{ flex: 1 }} ></View>
