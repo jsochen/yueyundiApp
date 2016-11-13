@@ -15,8 +15,11 @@ class KNavigator extends Component {
     }
     
     componentWillMount() {
-        this.props.Tabbardata.list.map((item)=>{
-          ROUTE_STACK.push(item.name);
+        this.props.Tabbardata.list.map((item,index)=>{
+          ROUTE_STACK.push({
+              name:item.name,
+              component:this.props.Pages[index]
+          });
         })
     }
   /*
@@ -54,25 +57,6 @@ class KNavigator extends Component {
                 return Navigator.SceneConfigs.HorizontalSwipeJump;
         }
     }
-    renderScene(route, navigator) {
-        var Pages = this.props.Pages.map((item,index)=>{
-            if(ROUTE_STACK.indexOf(route)===index){
-                let Component = this.props.Pages[index];
-                return(
-                 <View key={index} style={{height:Dimensions.get('window').height-50}}>  
-                  <Component key={index} navigator={navigator}></Component>
-                </View>
-                )
-            }
-        })
-        return (
-           <View style={styles.scene}>
-                <View style={{flex:1}}>
-                    {Pages}
-                </View>
-            </View>
-        );
-    }
     render() {
         // <TabBar ItemClick={this.ItemClick.bind(this)} Tabbardata ={this.props.Tabbardata}/>
         return (
@@ -81,8 +65,9 @@ class KNavigator extends Component {
               initialRoute={ROUTE_STACK[0]}
               initialRouteStack={ROUTE_STACK}
               configureScene={(route)=>{return this.getSceneType(route)}}
-              renderScene={(route, navigator) => {
-                 return this.renderScene(route, navigator);
+               renderScene={(route, navigator) => {
+                let Component = route.component;
+                return <Component {...route.params} navigator={navigator} />
               }}
                ref={(navigator) => {
                   this._navigator = navigator;
@@ -90,7 +75,7 @@ class KNavigator extends Component {
               onWillFocus={(nextroute)=>{
                    if(nextroute!=ROUTE_STACK[this.state.itemindex]){
                       this.setState({
-                          itemindex:ROUTE_STACK.indexOf(nextroute)
+                          itemindex:ROUTE_STACK.indexOf(nextroute)==-1?this.state.itemindex:ROUTE_STACK.indexOf(nextroute)
                       })
                    }
               }} 
@@ -99,12 +84,17 @@ class KNavigator extends Component {
                        Tabbardata={this.props.Tabbardata}
                        itemindex={this.state.itemindex}
                        ItemClick={(index) => {
-                           console.log(index);
                            this.setState(
                                { itemindex: index }
                            )
-                           console.log(this.state.itemindex);
-                           this._navigator.jumpTo(ROUTE_STACK[index]);
+                           let CurrentRoutes = this._navigator.getCurrentRoutes();
+                           for(var i in CurrentRoutes){
+                               if(ROUTE_STACK[index].name==CurrentRoutes[i].name){
+                                   this._navigator.jumpTo(ROUTE_STACK[index]);
+                                   return;
+                               }
+                           }
+                           this._navigator.push(ROUTE_STACK[index]);
                        } } />
                }
                />

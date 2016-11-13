@@ -9,8 +9,6 @@ import {AppRegistry, StyleSheet, Text, View, Image,Navigator} from 'react-native
 
 import KNavigator from './app/component/navigatorNow/KNavigator';
 
-import TabBar  from './app/component/navigatorNow/TabBar';
-
 //引入pages
 
 
@@ -60,7 +58,7 @@ class TextProject extends Component {
   }
   render() {
     return (
-     <KNavigator Pages={this.state.page}  Tabbardata={this.state.TabbarJson}/>
+       <KNavigator Pages={this.state.page}  Tabbardata={this.state.TabbarJson}/>
     );
   }
 }

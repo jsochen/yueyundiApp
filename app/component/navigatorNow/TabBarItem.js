@@ -31,6 +31,7 @@ class TabBarItem extends Component {
         // })
     }
     componentWillReceiveProps (nextProps) {
+        console.log(nextProps.itemindex);
         this.setState({
             imgurl:nextProps.index==nextProps.itemindex?nextProps.datatabar.imgChangeUrl:nextProps.datatabar.imgurl,
             fontColor:nextProps.index==nextProps.itemindex?nextProps.fontChangeColor:nextProps.fontColor,
