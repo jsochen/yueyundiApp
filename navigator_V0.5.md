@@ -9,7 +9,7 @@
 
  ## 数据格式
 
-### 引入数据格式（根据自己项目位置引入模块）
+### 引入模块（根据自己项目位置引入模块）
 ```
 import Page1 from './app/component/pages/Page1';
 import Page2 from './app/component/pages/Page2';
@@ -69,10 +69,10 @@ import KNavigator from './app/component/navigatorNow/KNavigator';
     );
   }
 ```
-## 现在就可以测试了 
+##  现在就可以测试了 
 
- ## 页面的跳转 
-  ### 在引入的其中一个模块中编写代码
+ ##  页面的跳转 
+  ###  在引入的其中一个模块中编写代码
 
 ```
 import React, {Component, PropTypes} from 'react';
@@ -113,7 +113,7 @@ export default Page1;
 ```
  
 
-##跳转方式对照表
+## 跳转方式对照表
 
 ```
   getSceneType(route) {
