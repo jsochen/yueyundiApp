@@ -45,7 +45,7 @@ class TabBarItem extends Component {
     }
     render() {
         return (
-            <TouchableHighlight activeOpacity={1} underlayColor={this.props.underlayColor||"#fafafa"} onPress={this.ButtonClick.bind(this,this.props.index)} style={this.ViewStyle()}>
+            <TouchableHighlight activeOpacity={this.props.tabOpacity} underlayColor={this.props.underlayColor||"#fafafa"} onPress={this.ButtonClick.bind(this,this.props.index)} style={this.ViewStyle()}>
                 <View style={{ flexDirection: 'column' }}>
                     <View style={styles.Imageview}>
                         <View style={{ flex: 1 }} ></View>

@@ -8,10 +8,20 @@ class TabBar extends Component {
     constructor(props) {
         super(props);
     }
+    TabbarStyle(){
+        return{
+            width: Dimensions.get('window').width,
+            flexDirection: 'row',
+            borderTopWidth: 1,
+            borderTopColor: '#ccc',
+            backgroundColor: this.props.Tabbardata.backColor
+        }
+    }
     render() {
          let  tabarjson = this.props.Tabbardata.list;
          let  tabarHTML = tabarjson.map((item,index)=>{
              return <TabBarItem
+             tabOpacity={this.props.Tabbardata.tabOpacity}
              tabbarIsHidden={this.props.tabbarIsHidden}
              itemindex={this.props.itemindex}
              key={index} 
