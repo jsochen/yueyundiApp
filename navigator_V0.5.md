@@ -4,18 +4,21 @@
 
 ## 将组件加入到项目中
   
-  ###  将项目中 app/component/navigatorNow中的文件复制到项目中
+###  将项目中 app/component/navigatorNow中的文件复制到项目中
 
- ## 数据格式
+## 数据格式
 
 ### 引入模块（根据自己项目位置引入模块）
+
 ```
 import Page1 from './app/component/pages/Page1';
 import Page2 from './app/component/pages/Page2';
 import Page3 from './app/component/pages/Page3';
 import Page4 from './app/component/pages/Page4';
 ```
- ### 初始化tabbar的信息
+
+###  初始化tabbar的信息
+
  ```
   componentWillMount() { 
     this.setState({
