@@ -5,7 +5,9 @@ import {
     TouchableOpacity,
     Text,
     Modal,
-    TouchableHighlight
+    TouchableHighlight,
+    StyleSheet,
+    Dimensions
 } from 'react-native';
 
 import FirstPageComponent from './FirstPageComponent';
@@ -36,14 +38,14 @@ export default class SecondPageComponent extends React.Component {
             navigator.push({
                name:"ThridPageComponent",
                component:ThridPageComponent,
-               type: "type3"
-               
+               type: "type3",
+               tabbarIsHidden:true
             });
         }
     }
     render() {
     return (
-            <View style={{height:500,borderColor:'#000',borderWidth:3,width:300,backgroundColor:"red"}}>
+            <View style={styles.bodys}>
                 <TouchableOpacity onPress={this._pressButton.bind(this)}>
                     <Text>点我跳回去</Text>
                 </TouchableOpacity>
@@ -55,3 +57,11 @@ export default class SecondPageComponent extends React.Component {
     );
     }
 }
+const styles = StyleSheet.create({
+  bodys:{
+    borderColor:'#000',
+    borderWidth:3,
+    width:300,
+    backgroundColor:"red",
+  }
+});

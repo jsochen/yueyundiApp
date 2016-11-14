@@ -28,6 +28,7 @@ export default class ThridPageComponent extends React.Component {
             navigator.push({
                 name: 'SecondPageComponent',
                 component: SecondPageComponent,
+                tabbarIsHidden:false
             })
         }
     }
