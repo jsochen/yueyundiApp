@@ -12,6 +12,7 @@ class TabBar extends Component {
          let  tabarjson = this.props.Tabbardata.list;
          let  tabarHTML = tabarjson.map((item,index)=>{
              return <TabBarItem
+             tabbarIsHidden={this.props.tabbarIsHidden}
              itemindex={this.props.itemindex}
              key={index} 
              index={index}
@@ -35,10 +36,13 @@ TabBar.propTypes = {
 };
 
 export default TabBar;
+
 const styles = StyleSheet.create({
    TabBar:{
        width:Dimensions.get('window').width,
-       height:50,
        flexDirection:'row',
+       borderTopWidth:1,
+       borderTopColor:'#ccc',
+       backgroundColor:'#f8f8f8'
    }
 });

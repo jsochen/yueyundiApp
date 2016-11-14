@@ -10,7 +10,8 @@ class KNavigator extends Component {
     constructor(props) {
         super(props);
         this.state={
-              itemindex:0
+              itemindex:0,
+              tabbarIsHidden:false
         }
     }
     
@@ -75,18 +76,21 @@ class KNavigator extends Component {
               onWillFocus={(nextroute)=>{
                    if(nextroute!=ROUTE_STACK[this.state.itemindex]){
                       this.setState({
-                          itemindex:ROUTE_STACK.indexOf(nextroute)==-1?this.state.itemindex:ROUTE_STACK.indexOf(nextroute)
+                          itemindex:ROUTE_STACK.indexOf(nextroute)==-1?this.state.itemindex:ROUTE_STACK.indexOf(nextroute),
+                          tabbarIsHidden:nextroute.tabbarIsHidden||nextroute.tabbarIsHidden==true?true:false
+                         // tabbarIsHidden:nextroute.tabbarIsHidden&&nextroute.tabbarIsHidden==false?false:true
                       })
                    }
               }} 
                navigationBar={
                    <TabBar
+                       tabbarIsHidden={this.state.tabbarIsHidden}
                        Tabbardata={this.props.Tabbardata}
                        itemindex={this.state.itemindex}
                        ItemClick={(index) => {
-                           this.setState(
-                               { itemindex: index }
-                           )
+                            this.setState({
+                                itemindex: index,
+                            })
                            let CurrentRoutes = this._navigator.getCurrentRoutes();
                            for(var i in CurrentRoutes){
                                if(ROUTE_STACK[index].name==CurrentRoutes[i].name){
@@ -110,7 +114,6 @@ export default KNavigator;
 const styles = StyleSheet.create({
     tabBarstyle:{
         flex:1,
-       
         height:10,
     },
     container: {

@@ -12,13 +12,14 @@ class Page1 extends Component {
             navigator.resetTo({
                 name: 'SecondPageComponent',
                 component: SecondPageComponent,
-                type:"type5"
+                type:"type5",
+                tabbarIsHidden:true
             })
         }
     }
     render() {
         return (
-            <View style={{backgroundColor:'red'}}>
+            <View style={styles.bodys}>
               <TouchableOpacity onPress={this._onpressout.bind(this)}>
                 <Text>点击跳转</Text>
               </TouchableOpacity>
@@ -32,4 +33,14 @@ Page1.propTypes = {
 };
 
 export default Page1;
+
+const styles = StyleSheet.create({
+  bodys:{
+    height:700,
+    borderColor:'#000',
+    borderWidth:3,
+    width:300,
+    backgroundColor:"red",
+  }
+});
 

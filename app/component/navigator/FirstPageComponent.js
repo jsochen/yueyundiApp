@@ -23,6 +23,7 @@ export default class FirstPageComponent extends React.Component {
             navigator.push({
                 name: 'SecondPageComponent',
                 component: SecondPageComponent,
+                tabbarIsHidden:true
             })
         }
     }
