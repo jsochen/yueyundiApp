@@ -31,6 +31,8 @@ class TextProject extends Component {
         fontColor: "#757575",
         fontChangeColor: "#D81E06",
         backColor:"#fafafa",
+        underlayColor:"#fafafa",
+        tabOpacity:1,
         list: [
           {
             name: '音乐',
