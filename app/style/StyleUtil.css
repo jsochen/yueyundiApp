@@ -1,0 +1,82 @@
+.header{
+	height:50;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.textCenter{
+	 text-align: center;
+}
+.textLeft{
+	text-align: left
+}
+.textRight{
+	text-align: right
+}
+.textJustCenter{
+	line-height: 25
+}
+.Header1Center{
+	font-size: 18;
+}
+.headerOut{
+	width:100vw;
+	position: absolute;
+	z-index: 99;
+	height: 50;
+	top:0;
+	left: 0
+}
+.headerImage{
+	width: 24;
+	height: 24;
+	margin-top: 13;
+	margin-left: 5;
+}
+.haveHeaderScroll{
+	height: 100vh;
+	/*background-color: blue;*/
+	z-index:1
+}
+.UpRefreshControl{
+	position: absolute;
+	top:100;
+	z-index: 100
+}
+.Page1header{
+	height:40;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.Page1selectText{
+	color:#fff;
+	font-weight: 500;
+	font-size: 14;
+	margin-top: 5;
+	margin-left: 20;
+	opacity: 0.3
+}
+.DrawerListView{
+	height: 50;
+	width:350;
+	flex-direction: row;
+}
+.DrawerListImage{
+	width: 38;
+	height: 38;
+	margin-top:6;
+}
+.DrawerListcentenText{
+	line-height: 35;
+	font-size: 15;
+}
+.Page1ViewPageTitle{
+
+}
+.Page1Centertab{
+	height: 35;
+	background-color: #FFF;
+	flex-direction: row;
+	align-items: center;
+}

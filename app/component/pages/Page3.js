@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 
-import {StyleSheet, Text, View, Image,Navigator} from 'react-native';
+import {StyleSheet, Text, View, Image,Navigator,TextInput} from 'react-native';
 
 
 
@@ -9,6 +9,7 @@ class Page3 extends Component {
         return (
             <View style={{backgroundColor:'red'}}>
               <Text>Page3</Text>
+              <TextInput></TextInput>
             </View>
         );
     }
