@@ -37,15 +37,15 @@ var Page1CenterTabbar = [
  },
  {
    name:"歌单",
-   component:BannerList
+   component:Textjs
  },
   {
    name:"主播电台",
-   component:BannerList
+   component:Textjs
  },
   {
    name:"排行榜",
-   component:BannerList
+   component:Textjs
  }
   ];
 
@@ -99,7 +99,7 @@ class Page1 extends Component {
     return (
       <DrawerLayoutAndroid
         ref='drawerLayout'
-        drawerWidth={350}
+        drawerWidth={320}
         onDrawerClose={() => {
           this.setState({ IsClose: true, })
         } }

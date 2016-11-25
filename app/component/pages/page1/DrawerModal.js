@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     DrawerTitle: {
         height: 150,
         flexDirection: 'column',
-        width: 350
+        width: 320
     },
     DrawerImageView: {
         flex: 3,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
         fontWeight: '300',
-        marginLeft: 30
+        marginLeft: 20
     },
     Drawerlevel: {
         flex: 5
