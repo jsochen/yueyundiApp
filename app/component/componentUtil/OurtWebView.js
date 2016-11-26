@@ -6,7 +6,6 @@ import Header2 from './Header2';
 class OutWebview extends Component {
     constructor(props) {
         super(props);
-         console.log(this.props.route);
     }
     
     render () {

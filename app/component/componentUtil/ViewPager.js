@@ -12,7 +12,6 @@ class ViewPager extends Component {
 
         let Abc =this.props.module[0]
         let Viewpages = this.props.module.map((item,index)=>{
-            console.log(item);
             return <View style={{width:vw,height:this.props.hei,flex:1}}  key={index}>
             <item.component navigator ={this.props.navigator}/>
             </View>   

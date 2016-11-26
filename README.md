@@ -152,3 +152,16 @@ export default Page1;
 先下滑出 后上滑进VerticalDownSwipeJump
 */
 ```
+## 控制tabbar的隐藏与显示
+
+ ```
+  ...
+     let {navigator} =this.props;
+        navigator.push({
+            name:"SelectView",
+            component:SelectView,
+            type:"type6",
+            tabbarIsHidden: true    //控制tabbar是否隐藏 true为隐藏
+        })
+  ...
+ ```
