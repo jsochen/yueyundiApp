@@ -39,3 +39,9 @@ buck-out/
 \.buckd/
 android/app/libs
 android/keystores/debug.keystore
+
+
+__tests__/
+android/
+ios/
+node_modules/

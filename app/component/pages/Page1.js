@@ -97,6 +97,7 @@ class Page1 extends Component {
       )
     })
     return (
+
       <DrawerLayoutAndroid
         ref='drawerLayout'
         drawerWidth={320}
@@ -107,7 +108,7 @@ class Page1 extends Component {
           this.setState({ IsClose: false, })
         } }
         drawerLockMode={this.state.drawer}
-        drawerPosition={DrawerLayoutAndroid.positions.Left}
+        // drawerPosition={DrawerLayoutAndroid.positions.Left}
         keyboardDismissMode="on-drag"
         renderNavigationView={() => <DrawerModal />}>
         <View style={{ backgroundColor: 'red' }}>
@@ -122,7 +123,7 @@ class Page1 extends Component {
           <View style={StyleUtil.Page1Centertab}>
             {Page1Centertab}
           </View>
-           <ViewPage hei={vh-145} navigator={this.props.navigator} module={Page1CenterTabbar} />
+          <ViewPage hei={vh-145} navigator={this.props.navigator} module={Page1CenterTabbar} />
         </View>
       </DrawerLayoutAndroid>
     );

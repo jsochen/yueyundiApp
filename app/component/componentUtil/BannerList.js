@@ -46,7 +46,7 @@ class BannerList extends Component {
     constructor (props) {
         super(props)
     }
-    
+
     SwiperOverStyle() {
         return { width: vw, height: 160, overflow: 'hidden' }
     }
@@ -55,7 +55,7 @@ class BannerList extends Component {
         navigator.push({
             name: "OutWebView",
             component: OutWebView,
-            
+
             type: "type6",
             url: url,
             title: name,
@@ -65,7 +65,7 @@ class BannerList extends Component {
     render() {
         let bannerlists = bannerlist.map((item, index) => {
             return (
-                
+
                 <View key={index} style={styles.slide1}>
                     <TouchableWithoutFeedback
                         onPress={() => {

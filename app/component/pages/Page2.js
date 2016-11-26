@@ -60,14 +60,15 @@ class Page2 extends Component {
     }
     render() {
         return (
+
             <View>
-                <Header3 navigator={this.props.navigator} bgColor="rgb(43,52,57)" color="#FFF" title="朋友圈" />
-                <ScrollView style={{ height: Dimensions.get('window').height - 110 }}>
-                    <FriendsTitle navigator={this.props.navigator} />
-                    <ListView dataSource={this.state.dataSource}
-                        renderRow={(rowData) => this.ListViewOnload(rowData)}
-                        />
-                </ScrollView>
+              <Header3 navigator={this.props.navigator} bgColor="rgb(43,52,57)" color="#FFF" title="朋友圈" />
+              <ScrollView style={{ height: Dimensions.get('window').height - 110 }}>
+                <FriendsTitle navigator={this.props.navigator} />
+                <ListView dataSource={this.state.dataSource}
+                  renderRow={(rowData) => this.ListViewOnload(rowData)}
+                />
+              </ScrollView>
             </View>
         );
     }
