@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity,Alert} from 'react-native';
 
 import StyleUtil from '../../../style/StyleUtil';
 
@@ -11,7 +11,7 @@ class Header3 extends Component {
         return {
             fontSize: 18,
             textAlign: 'center',
-            lineHeight: 25,
+            lineHeight: 35,
             color: this.props.color
         }
     }
@@ -36,9 +36,11 @@ class Header3 extends Component {
                 <View style={StyleUtil.header}>
                     <View style={{ flex: 1 }}>
                     </View>
-                    <View style={{ flex: 1 }}>
+                    <TouchableOpacity onPress={()=>{this.props.comTopTouch()}} style={{flex:1}}>
+                      <View style={{ flex: 1 }}>
                         <Text style={this.TextStyle()}>{this.props.title}</Text>
-                    </View>
+                    </View> 
+                    </TouchableOpacity>
                     <View style={{ flex: 1 }}>
                        <View style={{width:50,height:50,alignSelf:'flex-end',justifyContent:'center'}}>
                           <TouchableOpacity style={{flex:1}} onLongPress={this.longPress.bind(this)}>

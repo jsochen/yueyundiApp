@@ -39,7 +39,7 @@ class KNavigator extends Component {
         //根据传参判断 跳转场景
         switch (route.type) {
             case 'type1':
-                return Navigator.SceneConfigs.PushFromRight;
+                return Navigator.SceneConfigs.FadeAndroid;
             case 'type2':
                 return Navigator.SceneConfigs.FloatFromRight;
             case 'type3':
@@ -55,7 +55,7 @@ class KNavigator extends Component {
             case 'type8':
                 return Navigator.SceneConfigs.VerticalDownSwipeJump;
             default:
-                return Navigator.SceneConfigs.FadeAndroid;
+                return Navigator.SceneConfigs.PushFromRight;
         }
     }
     render() {
