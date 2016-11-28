@@ -12,11 +12,19 @@ class FriendsTitle extends Component {
       bgimgIsFabulous: this.props.bgimgIsFabulous
     };
   }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      BgImg: nextProps.bgimg,
+      myname: nextProps.otherusers || nextProps.username,
+      mytitleImg: nextProps.mytitleImg,
+      bgimgIsFabulous: nextProps.bgimgIsFabulous
+    })
+  }
   Fabulous() {
     if (this.state.bgimgIsFabulous == false) {
       fetch("http://beautcloud.cn/api/pointFabulous?id=" + this.props.otherId)
         .then((response) => {
-          response.json().then((data) => {  
+          response.json().then((data) => {
             if (data.state == 1) {
               ToastAndroid.show("你赞了" + this.props.otherusers + "背景墙", ToastAndroid.SHORT);
               this.setState({

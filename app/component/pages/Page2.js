@@ -14,7 +14,7 @@ class Page2 extends Component {
         var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
             username: "长镜头",
-            dataSource: ds.cloneWithRows(["dsfds"]),
+            dataSource: ds.cloneWithRows(['dsadsa']),
         };
         fetch("http://beautcloud.cn/api/friendlist")
             .then((response) => {
@@ -39,47 +39,55 @@ class Page2 extends Component {
     }
 
     ListViewOnload(rowData) {
-        return (
-            <View style={styles.rowDataView}>
-                <View style={{ flex: 1.5 }}>
-                    <TouchableOpacity onPress={() => this.JumpToOtherListView(rowData.id, rowData.name)} style={styles.loadingTitleImageTouch}>
-                        <Image source={{ uri: rowData.TitleImgurl }} style={styles.loadingTitleImage} />
-                    </TouchableOpacity>
-                </View>
-                <View style={{ flex: 8 }}>
-                    <Text style={styles.loadingName}>{rowData.name}</Text>
-                    <Text
-                        style={styles.loadingText}>
-                        {"    " + rowData.content}</Text>
-                    <View style={styles.loadingimg}>
-                        {this.LoadImage(rowData.Image)}
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <View style={{ flex: 1 }}>
-                            <Text style={styles.dataText}>{rowData.date}</Text>
-                        </View>
-                        <TouchableOpacity style={{ flex: 1 }}>
-                            <Image source={require('../../images/r/p/tk.png')} style={styles.pinglunButtonImage} />
+        if (rowData.TitleImgurl) {
+            return (
+                <View style={styles.rowDataView}>
+                    <View style={{ flex: 1.5 }}>
+                        <TouchableOpacity onPress={() => this.JumpToOtherListView(rowData.id, rowData.name)} style={styles.loadingTitleImageTouch}>
+                            <Image source={{ uri: rowData.TitleImgurl }} style={styles.loadingTitleImage} />
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.FabulousView}>
-                        <View style={{ flex: 1 }}>
-                            <TouchableOpacity>
-                                <Image source={require('../../images/r/p/xp.png')} style={styles.FabulousImg} />
+                    <View style={{ flex: 8 }}>
+                        <TouchableOpacity onPress={() => this.JumpToOtherListView(rowData.id, rowData.name)} >
+                            <Text style={styles.loadingName}>{rowData.name}</Text>
+                        </TouchableOpacity>
+                        <Text
+                            style={styles.loadingText}>
+                            {"    " + rowData.content.length > 100 ? rowData.content.substring(0, 99) + "···" : rowData.content}</Text>
+                        <View style={styles.loadingimg}>
+                            {this.LoadImage(rowData.Image)}
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <View style={{ flex: 1 }}>
+                                <Text style={styles.dataText}>{rowData.date}</Text>
+                            </View>
+                            <TouchableOpacity style={{ flex: 1 }}>
+                                <Image source={require('../../images/r/p/tk.png')} style={styles.pinglunButtonImage} />
                             </TouchableOpacity>
                         </View>
-                        <View style={{ flex: 8 }}>
-                            <Text style={styles.Fabulous}>
-                                {this.loadFabulous(rowData.Fabulous)}
-                            </Text>
+                        <View style={styles.FabulousView}>
+                            <View style={{ flex: 1 }}>
+                                <TouchableOpacity>
+                                    <Image source={require('../../images/r/p/xp.png')} style={styles.FabulousImg} />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ flex: 8 }}>
+                                <Text style={styles.Fabulous}>
+                                    {this.loadFabulous(rowData.Fabulous)}
+                                </Text>
+                            </View>
+                        </View>
+                        <View style={styles.commentTotalView}>
+                            {this.loadComment(rowData.comment)}
                         </View>
                     </View>
-                    <View style={styles.commentTotalView}>
-                        {this.loadComment(rowData.comment)}
-                    </View>
                 </View>
-            </View>
-        )
+            )
+        } else {
+            return (
+                <View></View>
+            )
+        }
     }
     //加载图片
     LoadImage(Images) {
@@ -156,7 +164,7 @@ class Page2 extends Component {
                         navigator={this.props.navigator}
                         otherusers={null}
                         mytitleImg="http://img.woyaogexing.com/2016/11/24/391e98bbd6a55df9!200x200.jpg"
-                         />
+                        />
                     <ListView dataSource={this.state.dataSource}
                         renderRow={(rowData) => this.ListViewOnload(rowData)}
                         />
